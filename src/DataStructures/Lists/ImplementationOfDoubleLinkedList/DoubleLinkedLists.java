@@ -41,8 +41,9 @@ public class DoubleLinkedLists {
             tail.setNext(node);
             node.setBefore(tail);
             tail = node;
+            size++;
         }
-        size++;
+
     }
 
     public void addInter(Employee employee,int index){
@@ -87,13 +88,21 @@ public class DoubleLinkedLists {
     }
 
     public NodeList popFirstNode(){
-        if(isEmpty())
+        if(isEmpty()){
             return null;
-        NodeList aux = head;
-        aux.getNext().setBefore(null);
-        head = aux.getNext();
-        size--;
-        return aux;
+        }else if(size == 1){
+            NodeList headAux = head;
+            head = null;
+            tail = null;
+            size--;
+            return headAux;
+        }else{
+            NodeList aux = head;
+            aux.getNext().setBefore(null);
+            head = aux.getNext();
+            size--;
+            return aux;
+        }
     }
 
     public int listSize(){
@@ -101,18 +110,26 @@ public class DoubleLinkedLists {
     }
 
     public NodeList popFinal(){
-        if(isEmpty())
+        if(isEmpty()){
             return null;
-        NodeList aux = tail;
-        aux.getBefore().setNext(null);
-        tail = aux.getBefore();
-        size--;
-        return aux;
+        }else if(size == 1){
+            return popFirstNode();
+        }else{
+            NodeList aux = tail;
+            aux.getBefore().setNext(null);
+            tail = aux.getBefore();
+            size--;
+            return aux;
+        }
     }
 
     public NodeList popInter(int index){
         if (isEmpty()){
             return null;
+        }else if(index == size - 1){
+            return popFinal();
+        }else if(index == 0){
+            return popFirstNode();
         }else if(index > 0 && index < size){
             NodeList prev = head;
             for (int i = 0; i < index-1; i++) {
