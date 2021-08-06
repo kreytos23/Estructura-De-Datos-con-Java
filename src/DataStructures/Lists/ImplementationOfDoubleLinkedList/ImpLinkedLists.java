@@ -12,7 +12,7 @@ public class ImpLinkedLists {
         lista.add(new Employee("Anita", "Perez",45655));
         lista.add(new Employee("Pepe", "papa",478956));
         lista.printList();
-        System.out.println("//////////////////\n");
+        /*System.out.println("//////////////////\n");
         System.out.println(lista.popFirstNode());
         //System.out.println("//////////////////\n");
         //lista.printList();
@@ -24,6 +24,9 @@ public class ImpLinkedLists {
         System.out.println(lista.popFinal());
         System.out.println("//////////////////\n");
         lista.printList();
-        System.out.println(lista.listSize());
+        System.out.println(lista.listSize());*/
+        System.out.println("//////////////////\n");
+        lista.addInter(new Employee("Carlitos", "Perez",4451),2);
+        lista.printList();
     }
 }

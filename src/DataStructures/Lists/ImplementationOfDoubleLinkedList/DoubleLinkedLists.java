@@ -47,6 +47,25 @@ public class DoubleLinkedLists {
         size++;
     }
 
+    public void addInter(Employee employee,int index){
+        if (isEmpty()){
+            add(employee);
+        }else if(index > 0 && index < size){
+            NodeList node = new NodeList(employee);
+            NodeList prev = head;
+            for (int i = 0; i < index-1; i++) {
+                prev = prev.getNext();
+            }
+            prev.getNext().setBefore(node);
+            node.setNext(prev.getNext());
+            node.setBefore(prev);
+            prev.setNext(node);
+            size++;
+        }else{
+            System.out.println("No sea tonto");
+        }
+    }
+
     public boolean isEmpty(){
         return head == null;
     }
