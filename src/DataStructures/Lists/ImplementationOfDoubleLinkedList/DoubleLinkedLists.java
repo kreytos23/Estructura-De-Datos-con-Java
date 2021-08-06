@@ -26,32 +26,25 @@ public class DoubleLinkedLists {
     public void add(Employee employee){
         NodeList node = new NodeList(employee);
         node.setNext(head);
-        node.setBefore(head.getBefore());
-        if(!isEmpty())
+        if(!isEmpty()){
             head.setBefore(node);
+        }else{
+            tail = node;
+        }
         head = node;
         size++;
     }
-
-    /*public void addLast(Employee employee){
-        if (isEmpty()){
-            add(employee);
-        }else{
-            getLast();
-            NodeList node = new NodeList(employee);
-            node.setBefore(tail);
-            tail.setNext(node);
-            tail = node;
-        }
-    }*/
 
     public void addLast(Employee employee){
         if (isEmpty()){
             add(employee);
         }else{
-
+            NodeList node = new NodeList(employee);
+            tail.setNext(node);
+            node.setBefore(tail);
+            tail = node;
         }
-
+        size++;
     }
 
     public boolean isEmpty(){
@@ -59,8 +52,7 @@ public class DoubleLinkedLists {
     }
 
     public void printListReverse(){
-        NodeList current = head;
-        getTail();
+        NodeList current = tail;
         while (current != null){
             System.out.println(current.getEmployee().toString());
             current = current.getBefore();
@@ -89,7 +81,21 @@ public class DoubleLinkedLists {
         if(isEmpty())
             return null;
         NodeList aux = head;
-        head = head.getNext();
+        aux.getNext().setBefore(null);
+        head = aux.getNext();
+        size--;
+        return aux;
+    }
+
+    public int listSize(){
+        return size;
+    }
+
+    public NodeList popFinal(){
+        NodeList aux = tail;
+        aux.getBefore().setNext(null);
+        tail = aux.getBefore();
+        size--;
         return aux;
     }
 }

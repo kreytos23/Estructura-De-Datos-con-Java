@@ -11,16 +11,18 @@ public class ImpLinkedLists {
         lista.add(new Employee("Luis", "papa",478956));
         lista.add(new Employee("Anita", "Perez",45655));
         lista.add(new Employee("Pepe", "papa",478956));
-
-        /*lista.printList();
-
-        lista.popFirstNode();
-
         lista.printList();
-*/
+        System.out.println("//////////////////\n");
+        System.out.println(lista.popFirstNode());
+        //System.out.println("//////////////////\n");
+        //lista.printList();
         lista.addLast(new Employee("Milos", "Gs",45625));
-        lista.printList();
+        //lista.printList();
+        System.out.println("//////////////////\n");
         lista.printListReverse();
-
+        System.out.println("//////////////////\n");
+        System.out.println(lista.popFinal());
+        System.out.println("//////////////////\n");
+        lista.printList();
     }
 }
