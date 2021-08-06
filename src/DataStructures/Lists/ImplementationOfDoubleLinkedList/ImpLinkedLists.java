@@ -28,5 +28,8 @@ public class ImpLinkedLists {
         System.out.println("//////////////////\n");
         lista.addInter(new Employee("Carlitos", "Perez",4451),2);
         lista.printList();
+        System.out.println(lista.popInter(2));
+        System.out.println("//////////////////\n");
+        lista.printList();
     }
 }

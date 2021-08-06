@@ -1,6 +1,4 @@
 package DataStructures.Lists.ImplementationOfDoubleLinkedList;
-import DataStructures.Lists.ImplementationOfDoubleLinkedList.Employee;
-
 
 public class DoubleLinkedLists {
     private NodeList head;
@@ -88,14 +86,6 @@ public class DoubleLinkedLists {
         System.out.println("\n");
     }
 
-    private void getLast(){
-        NodeList aux = head;
-        while(aux != null){
-            setTail(aux);
-            aux = aux.getNext();
-        }
-    }
-
     public NodeList popFirstNode(){
         if(isEmpty())
             return null;
@@ -111,10 +101,31 @@ public class DoubleLinkedLists {
     }
 
     public NodeList popFinal(){
+        if(isEmpty())
+            return null;
         NodeList aux = tail;
         aux.getBefore().setNext(null);
         tail = aux.getBefore();
         size--;
         return aux;
+    }
+
+    public NodeList popInter(int index){
+        if (isEmpty()){
+            return null;
+        }else if(index > 0 && index < size){
+            NodeList prev = head;
+            for (int i = 0; i < index-1; i++) {
+                prev = prev.getNext();
+            }
+            NodeList deleted = prev.getNext();
+            prev.setNext(prev.getNext().getNext());
+            prev.getNext().getNext().setBefore(prev);
+            size--;
+            return deleted;
+        }else{
+            System.out.println("No sea tonto");
+            return null;
+        }
     }
 }
