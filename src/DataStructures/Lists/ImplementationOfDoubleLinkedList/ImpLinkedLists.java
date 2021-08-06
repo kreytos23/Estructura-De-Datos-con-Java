@@ -24,5 +24,6 @@ public class ImpLinkedLists {
         System.out.println(lista.popFinal());
         System.out.println("//////////////////\n");
         lista.printList();
+        System.out.println(lista.listSize());
     }
 }
