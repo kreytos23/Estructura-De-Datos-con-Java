@@ -49,10 +49,11 @@ public class DoubleLinkedLists {
     public void addInter(Employee employee,int index){
         if (isEmpty()){
             add(employee);
-        }else if(index > 0 && index < size){
+        }else if(index >= 0 && index < size){
             NodeList node = new NodeList(employee);
             NodeList prev = head;
             for (int i = 0; i < index-1; i++) {
+                System.out.println("Entro al for");
                 prev = prev.getNext();
             }
             prev.getNext().setBefore(node);
@@ -63,6 +64,20 @@ public class DoubleLinkedLists {
         }else{
             System.out.println("No sea tonto");
         }
+    }
+
+    public void addBefore(Employee newEmployee,Employee employee){
+        int i = 0;
+        NodeList aux = head;
+        while(i < size){
+            if(aux.getEmployee().equals(employee)){
+                addInter(newEmployee,i);
+                return;
+            }
+            aux = aux.getNext();
+            i++;
+        }
+        System.out.println("Empleado no encontrado");
     }
 
     public boolean isEmpty(){
