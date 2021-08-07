@@ -56,11 +56,16 @@ public class DoubleLinkedLists {
                 System.out.println("Entro al for");
                 prev = prev.getNext();
             }
-            prev.getNext().setBefore(node);
-            node.setNext(prev.getNext());
-            node.setBefore(prev);
-            prev.setNext(node);
-            size++;
+            if(index == 0){
+                System.out.println("ENtra aki");
+                add(employee);
+            }else{
+                prev.getNext().setBefore(node);
+                node.setNext(prev.getNext());
+                node.setBefore(prev);
+                prev.setNext(node);
+                size++;
+            }
         }else{
             System.out.println("No sea tonto");
         }
