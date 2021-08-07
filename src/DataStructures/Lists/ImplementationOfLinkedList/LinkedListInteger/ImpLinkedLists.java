@@ -10,7 +10,10 @@ public class ImpLinkedLists {
         lista.addSortedNumbers(1);
         lista.addSortedNumbers(11);
         lista.addSortedNumbers(7);
-        lista.addSortedNumbers(4);
+        lista.addSortedNumbers(14);
+        lista.addSortedNumbers(6);
+        lista.addSortedNumbers(3);
+        lista.addSortedNumbers(12);
 
         lista.printList();
     }

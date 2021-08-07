@@ -13,28 +13,23 @@ public class LinkedLists {
 
     public void addSortedNumbers(int number){
         NodeList node = new NodeList(number);
-        if(isEmpty()){
+        if(isEmpty() || head.getNumber() > number){
             node.setNext(head);
             head = node;
-        }else{
-            if(head.getNumber() > number){
-                node.setNext(head);
-                head = node;
-                return;
-            }
-            NodeList aux = head;
-            while(aux.getNext() != null){
-                if(number < aux.getNext().getNumber()){
-                    aux = aux.getNext();
-                }else{
-                    break;
-                }
-            }
-            if (aux != null) {
-                node.setNext(aux.getNext());
-            }
-            aux.setNext(node);
+            return;
         }
+        NodeList aux = head;
+        while(aux.getNext() != null){
+            if(!(number > aux.getNumber() && number < aux.getNext().getNumber())){
+                aux = aux.getNext();
+            }else{
+                break;
+            }
+        }
+        if (aux.getNext() != null) {
+            node.setNext(aux.getNext());
+        }
+        aux.setNext(node);
     }
 
     public boolean isEmpty(){
