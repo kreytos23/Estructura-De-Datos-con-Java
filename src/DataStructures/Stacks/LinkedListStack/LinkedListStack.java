@@ -1,17 +1,10 @@
-package DataStructures.Lists.ImplementationOfLinkedList;
+package DataStructures.Stacks.LinkedListStack;
 
-public class LinkedLists {
+public class LinkedListStack {
+
     private NodeList head;
 
-    public NodeList getHead() {
-        return head;
-    }
-
-    public void setHead(NodeList head) {
-        this.head = head;
-    }
-
-    public void add(Employee employee){
+    public void push(Employee employee){
         NodeList node = new NodeList(employee);
         node.setNext(head);
         head = node;
@@ -21,7 +14,9 @@ public class LinkedLists {
         return head == null;
     }
 
-    public void printList(){
+    public void printStack(){
+        if(isEmpty())
+            return;
         NodeList current = head;
         while (current != null){
             System.out.println(current.getEmployee().toString());
@@ -29,7 +24,7 @@ public class LinkedLists {
         }
     }
 
-    public NodeList popFirstNode(){
+    public NodeList pop(){
         if(isEmpty())
             return null;
         NodeList aux = head;
@@ -38,6 +33,8 @@ public class LinkedLists {
     }
 
     public Employee peek(){
+        if(isEmpty())
+            return null;
         return head.getEmployee();
     }
 }
