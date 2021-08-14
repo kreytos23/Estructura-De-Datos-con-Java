@@ -26,7 +26,7 @@ public class ArrayListsMethots {
         employeeList.add(3, new Employee("John", "Doe", 4567));
         //employeeList.forEach(employee -> System.out.println(employee));
 
-//        Employee[] employeeArray = employeeList.toArray(new Employee[employeeList.size()]);
+        Employee[] employeeArray = employeeList.toArray(new Employee[employeeList.size()]);
 //        for (Employee employee: employeeArray) {
 //            System.out.println(employee);
 //        }
